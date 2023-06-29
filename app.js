@@ -1,6 +1,11 @@
 const express = require('express')
 const logger = require('morgan')
 const cors = require('cors')
+require('dotenv').config()
+
+
+// password projects GoIT 7sjsvMfl89iD27QA - GoIT
+// passwod db contacts 6Cp8zge9yh0f5oOb
 
 const contactsRouter = require('./routes/api/contacts')
 
