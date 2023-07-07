@@ -3,10 +3,7 @@ const logger = require('morgan')
 const cors = require('cors')
 require('dotenv').config()
 
-
-// password projects GoIT 7sjsvMfl89iD27QA - GoIT
-// passwod db contacts 6Cp8zge9yh0f5oOb
-
+const authRouter = require('./routes/api/auth')
 const contactsRouter = require('./routes/api/contacts')
 
 const app = express()
@@ -17,6 +14,7 @@ app.use(logger(formatsLogger))
 app.use(cors())
 app.use(express.json())
 
+app.use('/api/auth', authRouter)
 app.use('/api/contacts', contactsRouter)
 
 app.use((req, res) => {
