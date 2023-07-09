@@ -8,8 +8,6 @@ const { SECRET_KEY } = process.env;
 const authenticate = async (req, res, next) => {
   const { authorization = "" } = req.headers;
   const [bearer, token] = authorization.split(' ');
-  // console.log(bearer);
-  // console.log(token);
   if (bearer !== "Bearer") {
     next(HttpError(401));
   }
@@ -20,13 +18,13 @@ const authenticate = async (req, res, next) => {
     console.log(token);
     if (!user || !user.token || user.token !== token) {
       next(HttpError(401));
-      // throw HttpError(401, 'Email id not valid');
+      // throw HttpError(401, 'Email is not valid');
     }
     req.user = user;
     next();
   } catch {
     next(HttpError(401));
-    // throw HttpError(401, 'Email id not valid');
+    // throw HttpError(401, 'Email is not valid');
   }
 }
 
