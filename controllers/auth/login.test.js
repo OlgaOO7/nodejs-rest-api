@@ -30,7 +30,7 @@ describe('test login controller', () => {
       email: 'vika@mail.com',
       password: '99999999',
     };
-    // Send a POST request to your login route
+
     const response = await request(app).post('/api/auth/login').send(requestBody);
     expect(response.status).toBe(200);
     expect(typeof (response.body.token)).toBe('string');
