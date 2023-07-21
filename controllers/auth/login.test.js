@@ -36,9 +36,9 @@ describe('test login controller', () => {
     expect(response.status).toBe(200);
     const {token} = response.body;
     expect(typeof token).toBe('string');
-    // const {user} = response.body;
-    // expect(typeof user).toBe('object');
-    // expect(typeof user.email).toBe('string');
-    // expect(typeof user.subscription).toBe('string');
+    const {user} = response.body;
+    expect(typeof user).toBe('object');
+    expect(typeof user.email).toBe('string');
+    expect(typeof user.subscription).toBe('string');
   });
 });
